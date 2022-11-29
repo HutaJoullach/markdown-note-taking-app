@@ -1,5 +1,9 @@
+import Sidenav from './Sidenav'
+
 export default function Home() {
   return (
-    <div>This is a home page</div>
+    <>
+      <Sidenav />
+    </>
   )
 }
