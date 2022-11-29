@@ -25,3 +25,14 @@ export default async function MarkdownPage({ params: { markdownId } }: PageProps
     </div>
   )
 }
+
+export async function generateStaticParams() {
+  const res = await fetch('http://jsonplaceholder.typicode.com/posts/');
+  const markdowns: Markdown[] = await res.json();
+
+  const trimmedMarkdowns = markdowns.splice(0, 10);
+
+  return trimmedMarkdowns.map(markdown => ({
+    markdownId: markdown.id.toString()
+  }))
+}
