@@ -44,6 +44,11 @@ svg {
   height: 20px;
 }
 
+.markdownDirSvg {
+  width: 15px;
+  height: 15px;
+}
+
 .header {
   height: var(--header-height);
 }
@@ -52,6 +57,41 @@ svg {
   height: calc(100vh - var(--header-height));
 }
 
+.home {
+  display: flex !important;
+  height: calc(100vh - var(--header-height));
+}
+
 .sidenav {
   width: 45px;
+}
+
+.homepageWrapper {
+  display: flex;
+  width: 100vw;
+}
+
+.leftSidebar {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.75;
+}
+
+.leftSidebarIcons {
+  display: flex;
+}
+
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.75;
+}
+
+.rightSidebarIcons {
+  display: flex;
+}
+
+.homepageNoFile {
+  display: flex;
+  flex-grow: 3;
 }
