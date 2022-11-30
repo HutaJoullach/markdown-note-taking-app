@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Markdown } from "../../typings"
 
 const fetchMarkdowns = async () => {
@@ -10,13 +11,17 @@ const fetchMarkdowns = async () => {
 export default async function MarkdownEdit() {
   const markdowns = await fetchMarkdowns()
 
+  const trimmedMarkdown = markdowns.splice(0, 10);
+
   return (
     <div>
-      {markdowns.map(markdown => (
+      <ReactMarkdown>{trimmedMarkdown[0].body}</ReactMarkdown>
+
+      {/* {markdowns.map(markdown => (
         <p key={markdown.id}>
           <Link href={`/markdown/${markdown.id}`}>Markdown: {markdown.id}</Link>
         </p>
-      ))}
+      ))} */}
     </div>
   )
 }

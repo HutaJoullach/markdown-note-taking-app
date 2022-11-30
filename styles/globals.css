@@ -53,6 +53,21 @@ svg {
   height: var(--header-height);
 }
 
+.headerLeft {
+  display: flex;
+  flex-grow: 1.1;
+}
+
+.headerCenter {
+  display: flex;
+  flex-grow: 3;
+}
+
+.headerRight {
+  display: flex;
+  flex-grow: 0.6;
+}
+
 [data-nextjs-scroll-focus-boundary] {
   height: calc(100vh - var(--header-height));
 }
@@ -71,24 +86,10 @@ svg {
   width: 100vw;
 }
 
-.leftSidebar {
+.leftSidebar, .rightSidebar {
   display: flex;
   flex-direction: column;
   flex-grow: 0.75;
-}
-
-.leftSidebarIcons {
-  display: flex;
-}
-
-.rightSidebar {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 0.75;
-}
-
-.rightSidebarIcons {
-  display: flex;
 }
 
 .homepageNoFile {

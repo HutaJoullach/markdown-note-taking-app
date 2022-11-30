@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="header p-1 bg-slate-600 flex">
-      <div className="flex basis-1/5 justify-between px-1">
+      <div className="headerLeft flex justify-between px-1">
         <div className="flex">
           <div className="px-2 py-1 rounded-sm hover:bg-slate-500 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="">
@@ -31,9 +31,9 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex flex-1 justify-between px-1">
+      <div className="headerCenter flex justify-between px-1">
         <div className="flex">
-          <div className="px-2 py-1 flex items-center justify-between bg-slate-900 rounded-lg cursor-pointer">
+          <div className="headerTab px-2 py-1 flex items-center justify-between bg-slate-900 rounded-lg cursor-pointer">
             <Link  href='/' className="text-white-500 rounded-lg">New tab</Link>
             <div className="px-1 py-1 bg-slate-900 rounded-sm hover:bg-slate-700 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="">
@@ -56,7 +56,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex basis-1/5 justify-between px-1">
+      <div className="headerRight flex justify-between px-1">
         <div className="flex">
           <div className="px-2 py-1 rounded-sm hover:bg-slate-500 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="">
