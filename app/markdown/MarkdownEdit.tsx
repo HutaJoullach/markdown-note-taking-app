@@ -1,21 +1,21 @@
 import Link from "next/link";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { Markdown } from "../../typings"
-
-const fetchMarkdowns = async () => {
-  const res = await fetch('http://jsonplaceholder.typicode.com/posts');
-  const markdowns: Markdown[] = await res.json();
-  return markdowns;
-};
+import MarkdownForm from "./MarkdownForm";
+import { fetchMarkdowns, fetchMarkdown } from "../../utils/fetchMarkdown";
+import { MarkdownData } from "../../typings";
 
 export default async function MarkdownEdit() {
-  const markdowns = await fetchMarkdowns()
+  // const markdowns = await fetchMarkdowns()
+  // const trimmedMarkdown = markdowns.splice(0, 10);
 
-  const trimmedMarkdown = markdowns.splice(0, 10);
+  // const data = await fetchMarkdown('1')
+
+  const onCreateMarkdown = async (data: MarkdownData) => {
+    // call API to insert new markdown
+  };
 
   return (
-    <div>
-      <ReactMarkdown>{trimmedMarkdown[0].body}</ReactMarkdown>
+    <div className="markdownEdit">
+      <MarkdownForm onMarkdownChange={onCreateMarkdown} />
 
       {/* {markdowns.map(markdown => (
         <p key={markdown.id}>

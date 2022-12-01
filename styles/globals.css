@@ -5,6 +5,8 @@
 
 :root {
   --header-height: 40px;
+  --sidenav-width: 45px;
+  --markdown-title-height: 100px;
 }
 
 /* html,
@@ -38,6 +40,10 @@ body {
     background: black;
   }
 } */
+
+textarea {
+  resize: none;
+}
 
 svg {
   width: 20px;
@@ -77,22 +83,44 @@ svg {
   height: calc(100vh - var(--header-height));
 }
 
+.markdownFormWrapper, .markdownForm, .markdownWrapper, .notFound {
+  height: calc(100vh - var(--header-height));
+}
+
+.markdownTitle {
+  height: var(--markdown-title-height);
+}
+
+.markdownTextBody {
+  height: calc(100vh - var(--header-height) - var(--markdown-title-height));
+  width: 100%;
+}
+
+.markdownTextarea {
+  height: calc(100vh - var(--header-height) - var(--markdown-title-height));
+}
+
 .sidenav {
-  width: 45px;
+  width: var(--sidenav-width);
 }
 
 .homepageWrapper {
   display: flex;
-  width: 100vw;
+  width: calc(100vw - var(--sidenav-width));
+}
+
+.leftSidebarWrapper, .rightSidebarWrapper {
+  width: 280px;
 }
 
 .leftSidebar, .rightSidebar {
   display: flex;
   flex-direction: column;
-  flex-grow: 0.75;
+  /* flex-grow: 0.75; */
 }
 
-.homepageNoFile {
+.homepageNoFile, .markdownEdit {
   display: flex;
-  flex-grow: 3;
+  /* flex-grow: 3; */
+  flex-grow: 1;
 }

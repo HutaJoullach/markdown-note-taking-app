@@ -35,11 +35,13 @@ export default function Header() {
         <div className="flex">
           <div className="headerTab px-2 py-1 flex items-center justify-between bg-slate-900 rounded-lg cursor-pointer">
             <Link  href='/' className="text-white-500 rounded-lg">New tab</Link>
-            <div className="px-1 py-1 bg-slate-900 rounded-sm hover:bg-slate-700 cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
+            <Link href="..">
+              <div className="px-1 py-1 bg-slate-900 rounded-sm hover:bg-slate-700 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+            </Link>
           </div>
 
           <div className="px-2 py-1 rounded-sm hover:bg-slate-500 cursor-pointer">
