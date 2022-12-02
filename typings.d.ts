@@ -1,9 +1,15 @@
+export type User = {
+  id: number;
+  email: string;
+  name: string;
+  markdowns: Markdown[];
+};
+
 export type Markdown = {
   id: number;
   userId: number;
   title: string;
-  body: string;
-  completed: boolean;
+  content: string;
 };
 
 // export type NewMarkdown = {
@@ -13,11 +19,5 @@ export type Markdown = {
 export type MarkdownData = {
   userId: number;
   title: string;
-  body: string;
-  completed: boolean;
-};
-
-export type Tag = {
-  id: number;
-  label: string;
+  content: string;
 };

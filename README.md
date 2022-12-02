@@ -1,12 +1,12 @@
-# Next.js, Tailwind CSS & MongoDB Markdown Note Taking App
+# Next.js, Tailwind CSS & Prisma Markdown Note Taking App
 
-This Markdown Note Taking App uses Next.js, Tailwind CSS and MongoDB.
+This Markdown Note Taking App uses Next.js, Tailwind CSS and Prisma.
 
 ## Getting Started
 
 Prerequisite:
 
-- MongoDB database
+- SQL database
 - npm
 
 Setup

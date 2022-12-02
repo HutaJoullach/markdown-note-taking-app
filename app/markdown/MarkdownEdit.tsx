@@ -1,7 +1,8 @@
 import Link from "next/link";
 import MarkdownForm from "./MarkdownForm";
 import { fetchMarkdowns, fetchMarkdown } from "../../utils/fetchMarkdown";
-import { MarkdownData } from "../../typings";
+import { MarkdownData, Markdown } from "../../typings";
+import { PrismaClient } from "@prisma/client";
 
 export default async function MarkdownEdit() {
   // const markdowns = await fetchMarkdowns()
@@ -9,13 +10,30 @@ export default async function MarkdownEdit() {
 
   // const data = await fetchMarkdown('1')
 
-  const onCreateMarkdown = async (data: MarkdownData) => {
-    // call API to insert new markdown
+  // const onCreateMarkdown = async (data: MarkdownData) => {
+  //   // call API to insert new markdown
+  // };
+
+  const prisma = new PrismaClient();
+
+  let markdownData: Markdown;
+  const updateMarkdown = async () => {
+    try {
+      const updatedMarkdown = await prisma.markdown.update({
+        id: 1,
+        userId: 1,
+        title: markdownData.title,
+        content: markdownData.content,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    await prisma.$disconnect();
   };
 
   return (
     <div className="markdownEdit">
-      <MarkdownForm onMarkdownChange={onCreateMarkdown} />
+      <MarkdownForm markdownChange={markdownData!} />
 
       {/* {markdowns.map(markdown => (
         <p key={markdown.id}>
@@ -23,5 +41,5 @@ export default async function MarkdownEdit() {
         </p>
       ))} */}
     </div>
-  )
+  );
 }
