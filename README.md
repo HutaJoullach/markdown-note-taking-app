@@ -1,6 +1,6 @@
-# Next.js, Tailwind CSS & Prisma Markdown Note Taking App
+# Next.js, Tailwind CSS, Prisma & Zustand Markdown Note Taking App
 
-This Markdown Note Taking App uses Next.js, Tailwind CSS and Prisma.
+This Markdown Note Taking App uses Next.js, Tailwind CSS, Prisma and Zustand.
 
 ## Getting Started
 

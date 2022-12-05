@@ -12,10 +12,6 @@ export type Markdown = {
   content: string;
 };
 
-// export type NewMarkdown = {
-//   id: number;
-// } & MarkdownData
-
 export type MarkdownData = {
   userId: number;
   title: string;

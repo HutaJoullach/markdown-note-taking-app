@@ -1,40 +1,58 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, use, useRef, useState } from "react";
 import { MarkdownData, Markdown } from "../../typings";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { useMarkdownStore, useSettingsStore } from "../store";
+import { fetchMarkdowns, fetchMarkdown } from "../../utils/fetchMarkdown";
+
+import { updateMarkdown } from "../../utils/postMarkdown";
 
 type MarkdownFormProps = {
-  // onMarkdownChange: (data: MarkdownData) => void;
-  markdownChange: Markdown;
+  params?: {
+    markdownId?: string;
+  };
 };
 
-export default function MarkdownForm({ markdownChange }: MarkdownFormProps) {
+export default function MarkdownForm({ params }: MarkdownFormProps) {
   const [editing, setEditing] = useState<boolean>(true);
 
   const titleRef = useRef<HTMLInputElement>(null);
   const markdownRef = useRef<HTMLTextAreaElement>(null);
 
+  const setMarkdown = useMarkdownStore((state) => state.setMarkdown);
+  const markdown = useMarkdownStore((state) => state.markdown);
+
   const handleChange = (e: FormEvent) => {
-    // onMarkdownChange({
-    //   userId: 1,
-    //   title: titleRef.current!.value,
-    //   body: markdownRef.current!.value,
-    //   completed: false,
-    // });
-    markdownChange = {
-      id: 1,
+    setMarkdown({
+      id: params?.markdownId,
       userId: 1,
       title: titleRef.current!.value,
       content: markdownRef.current!.value,
-    };
+    });
   };
+
+  const setParams = useMarkdownStore((state) => state.setParams);
+  const currentParams = useMarkdownStore((state) => state.params);
+
+  async function updateMarkdown() {
+    const res = await fetch("http://localhost:3000/api/markdown");
+    return res.json();
+  }
+  const dataPromise = updateMarkdown();
+
+  if (params?.markdownId !== currentParams) {
+    const data = use(dataPromise);
+    setParams(params?.markdownId);
+  } else {
+    setParams(params?.markdownId);
+  }
 
   return (
     <>
       {editing ? (
         <div className="markdownFormWrapper w-full">
-          <form onChange={handleChange} className="markdownForm">
+          <form className="markdownForm">
             <div className="markdownWrapper input-group input-group-outline">
               <div className="markdownTitle flex items-center justify-center bg-slate-900">
                 <input
@@ -44,6 +62,7 @@ export default function MarkdownForm({ markdownChange }: MarkdownFormProps) {
                   type="text"
                   placeholder="Untitled"
                   required
+                  onChange={handleChange}
                 />
               </div>
               <div className="markdownTextBody flex items-center justify-center bg-slate-900">
@@ -52,6 +71,7 @@ export default function MarkdownForm({ markdownChange }: MarkdownFormProps) {
                   ref={markdownRef}
                   rows={15}
                   required
+                  onChange={handleChange}
                 ></textarea>
               </div>
             </div>
